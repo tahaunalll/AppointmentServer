@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//tüm endpointlere açýk, sonra deðiþtirilecek 
+//tï¿½m endpointlere aï¿½ï¿½k, sonra deï¿½iï¿½tirilecek 
 builder.Services.AddDefaultCors();
 
 builder.Services.AddApplication();
@@ -28,9 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors();
-
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 

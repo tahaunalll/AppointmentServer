@@ -1,4 +1,5 @@
 ﻿using AppointmentServer.Application.Features.Doctors.CreateDoctor;
+using AppointmentServer.Application.Features.Doctors.UpdateDoctor;
 using AppointmentServer.Domain.Entities;
 using AppointmentServer.Domain.Enums;
 using AutoMapper;
@@ -17,11 +18,15 @@ namespace AppointmentServer.Application.Mapping
         {
             CreateMap<CreateDoctorCommand, Doctor>()
                 .ForMember(member => member.Department,
-                options => options.MapFrom(map => DepartmentEnum.FromValue(map.Department)));
+                options => options.MapFrom(map => DepartmentEnum.FromValue(map.DepartmentValue)));
+
+            CreateMap<UpdateDoctorCommand, Doctor>()
+                .ForMember(member => member.Department,
+                options => options.MapFrom(map => DepartmentEnum.FromValue(map.DepartmentValue)));
         }
 
         //şuradaki işleme eş değer : 
-       
+
         /*
         Doctor doctor = new()
         {
@@ -30,5 +35,7 @@ namespace AppointmentServer.Application.Mapping
             Department = DepartmentEnum.FromValue(request.Department),
         };
         */
+
+
     }
 }
